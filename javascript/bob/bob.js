@@ -1,12 +1,12 @@
 var Bob = function() {
   this.hey = function(input){
-    if (silenceCheck(input)) {
+    if (isSilent(input)) {
       return "Fine. Be that way!";
     }
-    else if(screamingCheck(input)){
+    else if(isScreaming(input)){
       return "Woah, chill out!";
     }
-    else if(questionCheck(input)){
+    else if(isQuestion(input)){
       return "Sure.";
     }
     else {
@@ -14,21 +14,23 @@ var Bob = function() {
     }
   };
   
-  var silenceCheck = function(input){
+  var isSilent = function(input){
     return input.trim() === "";
   };
 
-  var screamingCheck = function(input) {
-    if (input === input.toUpperCase()){
-      return letterCheck(input);
-    }
+  var isScreaming = function(input) {
+    return isUpcase(input) && hasLetters(input);
   };
 
-  var letterCheck = function(input) {
+  var isUpcase = function(input) {
+    return input === input.toUpperCase();
+  };
+
+  var hasLetters = function(input) {
     return input.match(/[a-zA-Z]/);
   };
 
-  var questionCheck = function(input) {
+  var isQuestion = function(input) {
     return input.trim().slice(-1) === "?";
   };
 };
