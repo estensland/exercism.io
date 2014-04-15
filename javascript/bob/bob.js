@@ -22,13 +22,12 @@ Person.prototype.toneHeard = {
   },
 };
 
-
 var Bob = function() {};
 
 Bob.prototype = new Person();
 
 Bob.prototype.hey = function(input){
-  if (this.toneHeard.isSilent(input)) {
+  if (toneHeard.isSilent(input)) {
     return "Fine. Be that way!";
   }
   else if(this.toneHeard.isScreaming(input)){
