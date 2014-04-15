@@ -1,6 +1,7 @@
-var Person = function() {};
+var Bob = function() {};
 
-Person.prototype.toneHeard = {
+Bob.prototype.toneHeard = {
+
   isSilent : function(input){
     return input.trim() === "";
   },
@@ -22,23 +23,14 @@ Person.prototype.toneHeard = {
   },
 };
 
-var Bob = function() {};
-
-Bob.prototype = new Person();
-
 Bob.prototype.hey = function(input){
-  if (toneHeard.isSilent(input)) {
-    return "Fine. Be that way!";
-  }
-  else if(this.toneHeard.isScreaming(input)){
-    return "Woah, chill out!";
-  }
-  else if(this.toneHeard.isQuestion(input)){
-    return "Sure.";
-  }
-  else {
-    return "Whatever.";
-  }
+  if (this.toneHeard.isSilent(input)) return "Fine. Be that way!";
+  
+  else if(this.toneHeard.isScreaming(input)) return "Woah, chill out!";
+  
+  else if(this.toneHeard.isQuestion(input))return "Sure.";
+  
+  else return "Whatever.";
 };
 
 module.exports = Bob;
