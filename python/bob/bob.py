@@ -1,22 +1,20 @@
-import re 
-
 class Bob:
 
-  def hey(self, input):
-    if self.silence_check(input):
+  def hey(self, speech_heard):
+    if self.is_silent(speech_heard):
       return "Fine. Be that way!"
-    elif self.scream_check(input):
+    elif self.is_screaming(speech_heard):
       return "Woah, chill out!"
-    elif self.question_check(input):
+    elif self.is_question(speech_heard):
       return "Sure."
     else:
       return "Whatever." 
 
-  def silence_check(self, input):
-    return input.rstrip() == ""
+  def is_silent(self, speech_heard):
+    return speech_heard.rstrip() == ""
 
-  def scream_check(self, input):
-    return input == input.upper() and re.search('[A-Z]', input)
+  def is_screaming(self, speech_heard):
+    return speech_heard.isupper()
 
-  def question_check(self, input):
-    return input.rstrip()[-1] == "?"
+  def is_question(self, speech_heard):
+    return speech_heard.rstrip()[-1] == "?"
