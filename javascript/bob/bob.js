@@ -1,28 +1,12 @@
-var Bob = function() {}
+var Person = function() {};
 
-
-Bob.prototype.hey = function(input){
-  if (isSilent(input)) {
-    return "Fine. Be that way!";
-  }
-  else if(isScreaming(input)){
-    return "Woah, chill out!";
-  }
-  else if(isQuestion(input)){
-    return "Sure.";
-  }
-  else {
-    return "Whatever.";
-  }
-};
-  
-Bob.prototype.tones = {
+Person.prototype.toneHeard = {
   isSilent : function(input){
     return input.trim() === "";
   },
 
   isScreaming : function(input) {
-    return isUpcase(input) && hasLetters(input);
+    return this.isUpcase(input) && this.hasLetters(input);
   },
 
   isUpcase : function(input) {
@@ -36,6 +20,26 @@ Bob.prototype.tones = {
   isQuestion : function(input) {
     return input.trim().slice(-1) === "?";
   },
+};
+
+
+var Bob = function() {};
+
+Bob.prototype = new Person();
+
+Bob.prototype.hey = function(input){
+  if (this.toneHeard.isSilent(input)) {
+    return "Fine. Be that way!";
+  }
+  else if(this.toneHeard.isScreaming(input)){
+    return "Woah, chill out!";
+  }
+  else if(this.toneHeard.isQuestion(input)){
+    return "Sure.";
+  }
+  else {
+    return "Whatever.";
+  }
 };
 
 module.exports = Bob;
