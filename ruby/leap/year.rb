@@ -1,22 +1,26 @@
 class Year
   def self.leap?(year)
-    return true if Year.century_leap?(year)
-    unless Year.century?(year)
-      return true if Year.divisible_by_four?(year)
+    if Year.divisible_by_four?(year) && Year.not_century?(year) || Year.leap_century?(year)
+      true 
+    else
+      false
     end
-    false
   end
 
-  def self.century_leap?(year)
-    year % 400 == 0
+  def self.leap_century?(year)
+    Year.divisibile?(year, 400)
   end
 
-  def self.century?(year)
-    year % 100 == 0
+  def self.not_century?(year)
+    !Year.divisibile?(year, 100)
   end
 
   def self.divisible_by_four?(year)
-    year % 4 == 0
+    Year.divisibile?(year, 4)
+  end
+
+  def self.divisibile?(year, number)
+    year % number == 0
   end
 end
 
