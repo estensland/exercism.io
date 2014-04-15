@@ -1,6 +1,6 @@
 var Bob = function() {};
 
-Bob.prototype= {
+Bob.prototype = {
   toneHeard : {
     isSilent : function(input){
       return input.trim() === "";
