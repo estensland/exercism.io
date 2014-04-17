@@ -1,6 +1,8 @@
 (ns bob)
 
-(defn response-for [user-input]
+(defn response-for [userInput]
   (cond
-    (empty? user-input) "Fine. Be that way!")
-  "Whatever.")
+   (empty? (.trim userInput))  "Fine. Be that way!"
+   (= userInput (.toUpperCase userInput) and ) "Woah, chill out!"
+   (.endsWith userInput "?") "Sure."
+   :else              "Whatever."))
