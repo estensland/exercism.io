@@ -12,9 +12,8 @@ class Hamming
   end
 
   def self.compare(strand_a, strand_b)
-    strand_a.length < strand_b.length ? strand_a.length : strand_b.length
+    return  strand_a.length if strand_a.length < strand_b.length 
+    strand_b.length
   end
 
 end
-
-p Hamming.compute('A', 'A')
