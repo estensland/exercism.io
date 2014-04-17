@@ -18,7 +18,8 @@ Bob.prototype = {
     },
 
     isScreaming : function(input) {
-      return Bob.prototype.toneHeardFormats.isUpcase(input) && Bob.prototype.toneHeardFormats.hasLetters(input);
+      var formats = Bob.prototype.toneHeardFormats;
+      return formats.isUpcase(input) && formats.hasLetters(input);
     },
 
     isQuestion : function(input) {
@@ -38,10 +39,8 @@ Bob.prototype = {
   },
 
   hey : function(input){
-    for(object in this.toneHeard){
-      if (this.toneHeard[object](input)) {
-        return (this.responsesTo[object]);
-      }
+    for(var object in this.toneHeard){
+      if (this.toneHeard[object](input)) {return (this.responsesTo[object]);}
     }
   }
 };
