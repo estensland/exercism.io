@@ -31,6 +31,8 @@ Bob.prototype = {
     },
   },
 
+  responseOrder: ["isSilent", "isScreaming", "isQuestion", "isWhatever"],
+
   responsesTo: {
     isSilent : "Fine. Be that way!",
     isScreaming : "Woah, chill out!",
@@ -39,8 +41,9 @@ Bob.prototype = {
   },
 
   hey : function(input){
-    for(var object in this.toneHeard){
-      if (this.toneHeard[object](input)) {return (this.responsesTo[object]);}
+    for(var element in this.responseOrder){
+      object = this.responseOrder[element];
+      if (this.toneHeard[object](input)) {return this.responsesTo[object];}
     }
   }
 };
