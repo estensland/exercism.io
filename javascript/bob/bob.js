@@ -41,8 +41,8 @@ Bob.prototype = {
   },
 
   hey : function(input){
-    for(var element in this.responseOrder){
-      object = this.responseOrder[element];
+    for(var index = 0; index <= this.responseOrder.length; index ++){
+      object = this.responseOrder[index];
       if (this.toneHeard[object](input)) {return this.responsesTo[object];}
     }
   }
