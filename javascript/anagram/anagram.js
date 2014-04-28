@@ -4,7 +4,6 @@ var AnagramHelpers = {
   sameWordCheck : function(self, option){return self.word === option;},
 
   sortWord : function(word) {return word.toLowerCase().split('').sort().join('');},
-
 };
 
 var Anagram = function(word) {
@@ -13,12 +12,12 @@ var Anagram = function(word) {
 };
 
 Anagram.prototype = {
-
   match: function(options) {
     results = [];
+
     for(var index = 0; index < options.length; index ++){
       sortedOption = AnagramHelpers.sortWord(options[index]);
-
+     
       if (AnagramHelpers.sameWordCheck(this, options[index].toLowerCase())) {continue;}
       if (AnagramHelpers.anagramCheck(this, sortedOption)) {results.push(options[index]); }
     }
@@ -27,9 +26,3 @@ Anagram.prototype = {
 };
 
 module.exports = Anagram;
-
-      var detector = new Anagram("Orchestra");
-    var matches = detector.match(['cashregister', 'Carthorse', 'radishes']);
-    console.log(matches);
-
-    
