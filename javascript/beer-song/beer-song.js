@@ -1,18 +1,19 @@
 Beer = {
   lineOne: function(round) {
     if (round === 1) {
-      return round + " bottle of beer on the wall, " + round + " bottle of beer.\nTake it down and pass it around, no more bottles of beer on the wall.\n";
+      return round + " bottle of beer on the wall, " + round + " bottle of beer.\n";
     }
     else if (round === 0) {
-      return "No more bottles of beer on the wall, no more bottles of beer.\nGo to the store and buy some more, 99 bottles of beer on the wall.\n";
+      return "No more bottles of beer on the wall, no more bottles of beer.\n";
     }
     else {
-      
+      return round + " bottles of beer on the wall, " + round + " bottles of beer.\n";
     }
-  }
+  },
+  
   verse : function(round) {
     if (round === 1) {
-      return round + " bottle of beer on the wall, " + round + " bottle of beer.\nTake it down and pass it around, no more bottles of beer on the wall.\n";
+      return this.lineOne(round) + "Take it down and pass it around, no more bottles of beer on the wall.\n";
     }
     else if (round === 0) {
       return "No more bottles of beer on the wall, no more bottles of beer.\nGo to the store and buy some more, 99 bottles of beer on the wall.\n";
