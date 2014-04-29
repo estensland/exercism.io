@@ -1,12 +1,18 @@
 Beer = {
-  verse : function(number) {
-  result = []  
-  result.push(number + " bottles of beer on the wall, 8 bottles of beer.\nTake one down and pass it around," + (number = number -1) + " bottles of beer on the wall.\n")
-  result.push(number + " bottles of beer on the wall, " + number + " bottles of beer.\nTake one down and pass it around," + (number = number -1) + " bottles of beer on the wall.\n")
-  return result.join("");
-  }
-}
+  verse : function(round) {
+    return round + " bottles of beer on the wall, 8 bottles of beer.\nTake one down and pass it around, " + (round -1) + " bottles of beer on the wall.\n"
+  },
 
-console.log(Beer.verse(8))
+  sing : function(number) {
+    result = [];
+    while(number >= 0) {
+      result.push(this.verse(number));
+      number --;
+    }
+    return result.join("");
+  }
+};
 
 module.exports = Beer;
+
+var expected = "8 bottles of beer on the wall, 8 bottles of beer.\nTake one down and pass it around, 7 bottles of beer on the wall.\n";
