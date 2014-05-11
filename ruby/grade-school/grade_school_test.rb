@@ -41,7 +41,6 @@ class SchoolTest < MiniTest::Unit::TestCase
   end
 
   def test_get_students_sorted_in_a_grade
-    skip
     school.add("Franklin", 5)
     school.add("Bradley", 5)
     school.add("Jeff", 1)
@@ -49,12 +48,10 @@ class SchoolTest < MiniTest::Unit::TestCase
   end
 
   def test_get_students_in_a_non_existant_grade
-    skip
     assert_equal [], school.grade(1)
   end
 
   def test_sort_school
-    skip
     school.add("Jennifer", 4)
     school.add("Kareem", 6)
     school.add("Christopher", 4)
