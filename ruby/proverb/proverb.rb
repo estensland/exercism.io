@@ -10,14 +10,16 @@ class Proverb
 
   def args_to_phrase(*args)
     phrase = ""    
+    @qualifier << " " if @qualifier
 
     args.flatten!.each_with_index do |word, index|
-      next if index == args.length - 1
-      phrase << "For want of a #{word} the #{args[index + 1].to_s} was lost.\n"
+      if index == args.length - 1
+        phrase << "For want of a #{word} the #{args[index + 1].to_s} was lost.\n"
+      else
+        phrase << "And all for the want of a #{@qualifier}#{args.first}."    
+      end
     end
-
-    @qualifier << " " if @qualifier
-    phrase << "And all for the want of a #{@qualifier}#{args.first}."    
-    return phrase
+    
+    phrase
   end
 end    
