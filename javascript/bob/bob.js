@@ -15,7 +15,7 @@ var toneHelpers = {
 
   isScreaming : function(input) {
     var formats = Bob.prototype.toneHeardFormats;
-    return formats.isUpcase(input) && formats.hasLetters(input);
+    return this.isUpcase(input) && this.hasLetters(input);
   },
 
   isQuestion : function(input) {
@@ -39,7 +39,7 @@ Bob.prototype = {
   },
 
   hey : function(input){
-    for(var index = 0; index <= this.responseOrder.length; index ++){
+    for(var index = 0; index <= this.responseOrder.length - 1; index ++){
       object = this.responseOrder[index];
       if (toneHelpers[object](input)) {return this.responsesTo[object];}
     }
