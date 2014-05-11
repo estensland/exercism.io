@@ -6,7 +6,7 @@ var toneHelpers = {
   },
 
   hasLetters : function(input) {
-    return input.match(/[a-zA-Z]/);
+    return input !== input.toLowerCase();
   },
 
   isSilent : function(input){
@@ -41,7 +41,7 @@ Bob.prototype = {
   hey : function(input){
     for(var index = 0; index <= this.responseOrder.length; index ++){
       object = this.responseOrder[index];
-      if (this.toneHeard[object](input)) {return this.responsesTo[object];}
+      if (toneHelpers[object](input)) {return this.responsesTo[object];}
     }
   }
 };
