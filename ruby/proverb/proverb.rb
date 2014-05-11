@@ -13,13 +13,13 @@ class Proverb
     @qualifier << " " if @qualifier
 
     args.flatten!.each_with_index do |word, index|
-      if index == args.length - 1
+      unless index == args.length - 1
         phrase << "For want of a #{word} the #{args[index + 1].to_s} was lost.\n"
       else
         phrase << "And all for the want of a #{@qualifier}#{args.first}."    
       end
     end
-    
+
     phrase
   end
 end    
