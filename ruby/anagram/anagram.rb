@@ -6,13 +6,16 @@ class Anagram
   end
 
   def match(options)
-    sorted_word = word.downcase.split('').sort.join('')
+    sorted_word = sort_word(word)
   
     options.select do |option|
       next if word == option.downcase
-      sorted_option = option.downcase.split('').sort.join('')
+      sorted_option = sort_word(option)
       option if sorted_word == sorted_option
     end
   end
 
+  def sort_word(input)
+    input.downcase.chars.sort
+  end
 end
