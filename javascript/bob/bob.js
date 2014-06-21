@@ -1,10 +1,7 @@
 var Bob = function() {};
 
-Bob.prototype = 
-
-
 Bob.prototype = {
-  toneHelpers : { 
+  toneHelpers : {
     isUpcase : function(input) {
       return input === input.toUpperCase();
     },
@@ -45,16 +42,15 @@ Bob.prototype = {
     //   object = this.responseOrder[index];
     //   if (this.toneHelpers[object](input)) {return this.responsesTo[object];}
     // }
-    var self = this
-    var result = ""
+    var self = this;
+    var result = "";
     this.responseOrder.forEach(function(object){
       if (self.toneHelpers[object](input) && result === "") {
         result = self.responsesTo[object];
       }
-    })
-    return result
+    });
+    return result;
   }
 };
   
-var result = (new Bob).hey('Does this cryogenic chamber make me look fat?');
 module.exports = Bob;
